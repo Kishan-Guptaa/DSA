@@ -1,0 +1,24 @@
+class Solution {
+     public static int  maxChunksToSorted(int[] arr){
+        int n = arr.length;
+        int[] prefixmax = new int[n];
+        prefixmax[0] = arr[0];
+        for(int i=1;i<n;i++){
+            prefixmax[i] = Math.max(prefixmax[i-1],arr[i]);
+        }
+        
+        int[] suffixmax = new int[n];
+        suffixmax[n-1] = arr[n-1];
+        for(int i=n-2;i>=0;i--){
+            suffixmax[i] = Math.min(suffixmax[i+1],arr[i]);
+        }
+        int count = 0;
+        for(int i=0;i<n-1;i++){
+            if(prefixmax[i]<=suffixmax[i+1]){
+                count++;
+            }
+        }
+         count++;
+        return count;
+    }
+}
