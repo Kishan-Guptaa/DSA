@@ -1,8 +1,9 @@
 // User function Template for Java
 
 class Solution {
+    // Function for finding maximum and value pair
     int minSwap(int[] arr, int k) {
-   
+        // Complete the function
         int n = arr.length;
         int totalks = 0;
         for(int i=0;i<n;i++){
